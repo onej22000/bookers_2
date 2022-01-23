@@ -1,22 +1,9 @@
 user/showページ
 
 
- <h1>Bookers</h1>
- <li>
-  <%= link_to "Home", root_path %>
- </li>
- <li>
-  <%= link_to "Users", user_path %>
- </li>
- <li>
-  <%= link_to "Books", book_path %>
- </li>
- <li>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
- </li>
  <h1>User info</h1>
 
- <%= image_tag @user.image, size: "200x200" %>
+ <%= image_tag @user.image, size: "63x63" %>
 
  <p>name</p>
  <p><%= @user.name %></p>
@@ -24,7 +11,10 @@ user/showページ
  <p>introduction</p>
  <p><%= @user.introduction %></p>
 
- <%= link_to "編集", edit_user_path(@user.id) %>
+ <%= link_to edit_user_path(@user.id) do %>
+  <span class="fas fa-user-cog"></span>
+ <% end %>
+
  <h1>New book</h1>
  <%= form_with model: @book, local:true do |f| %>
 
