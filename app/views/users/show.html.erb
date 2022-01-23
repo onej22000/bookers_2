@@ -1,54 +1,68 @@
 user/showページ
-<h1>User info</h1>
-
-<%= image_tag @user.image, size: "200x200" %>
-
-<p>name</p>
-<p><%= @user.name %></p>
-
-<p>introduction</p>
-<p><%= @user.introduction %></p>
-<%= link_to "編集", edit_user_path(@user.id) %>
 
 
-<h1>New book</h1>
-<%= form_with model: @book, local:true do |f| %>
+ <h1>Bookers</h1>
+ <li>
+  <%= link_to "Home", root_path %>
+ </li>
+ <li>
+  <%= link_to "Users", user_path %>
+ </li>
+ <li>
+  <%= link_to "Books", book_path %>
+ </li>
+ <li>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+ </li>
+ <h1>User info</h1>
 
-  <h4>Title</h4>
-  <%= f.text_field :title %>
+ <%= image_tag @user.image, size: "200x200" %>
 
-  <h4>Opinion</h4>
-  <%= f.text_area :opinion %>
+ <p>name</p>
+ <p><%= @user.name %></p>
 
-  <%= f.submit 'Create Book' %>
+ <p>introduction</p>
+ <p><%= @user.introduction %></p>
 
-<% end %>
+ <%= link_to "編集", edit_user_path(@user.id) %>
+ <h1>New book</h1>
+ <%= form_with model: @book, local:true do |f| %>
 
-<h1>Books</h1>
+   <h4>Title</h4>
+   <%= f.text_field :title %>
 
-<table>
- <thead>
-  <tr>
-   <th>Title</th>
-   <th>Opinion</th>
-   <th colspan="2"></th>
-  </tr>
- </thead>
- <tbody>
-  <% @books.each do |book| %>
+   <h4>Opinion</h4>
+   <%= f.text_area :opinion %>
 
+   <%= f.submit 'Create Book' %>
+
+ <% end %>
+
+ <h1>Books</h1>
+
+ <table>
+  <thead>
    <tr>
-    <td><%= book.title %></td>
-    <td><%= book.opinion %></td>
-
-    <td>
-     <%= link_to "Edit", edit_book_path(book.id) %>
-    </td>
-    <td>
-     <%= link_to "Destroy", "/books/#{book.id}", method: :delete,  "data-confirm" => "Are you sure?" %>
-    </td>
+    <th>Title</th>
+    <th>Opinion</th>
+    <th colspan="2"></th>
    </tr>
+  </thead>
+  <tbody>
+   <% @books.each do |book| %>
 
-  <% end %>
- </tbody>
-</table>
+    <tr>
+     <td><%= book.title %></td>
+     <td><%= book.opinion %></td>
+
+     <td>
+      <%= link_to "Edit", edit_book_path(book.id) %>
+     </td>
+     <td>
+      <%= link_to "Destroy", "/books/#{book.id}", method: :delete,  "data-confirm" => "本当に消しますか？" %>
+     </td>
+    </tr>
+
+   <% end %>
+  </tbody>
+ </table>
