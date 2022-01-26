@@ -1,14 +1,15 @@
-  homes/topページ
 
+  <p class="notice"><%= flash[:notice] %></p>
   <h1>welcome to <i class="fas fa-book"></i>Bookers!!</h1>
   <p>
      In <i class="fas fa-book"></i>Bookers,<br>
-     you can share and exchange your opinions , inpressions , and emotions<br>
-     about various books!
+     you can share and exchange your opinions , inpressions , and emotions
   </p>
+  <p>about various books!</p>
+
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          <%= link_to "Log out", destroy_user_session_path %>
         </li>
       <% else %>
         <li>
