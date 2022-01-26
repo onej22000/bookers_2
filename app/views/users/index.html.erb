@@ -1,18 +1,52 @@
-users/indexページ
-<h1>Books</h1>
-<% @books.each do |book| %>
-
-  <p>Title</p>
-  <span>
-    <%=link_to book.title, book_path(book.id) %>
-  </span>
-  
-  <p>Opinion</p>
-  <span>
-    <%=link_to book.opinion, book_path(book.id) %>
-  </span>
-  
-  
-
-  
+<h1>User info</h1>
+<td><%= image_tag @user.profile_image, size: "63x63" %></td>
+<td>name</td>
+<td><%= @user.name %></td>
+<td>introduction</td>
+<td><%= @user.introduction %></td>
+<%= link_to edit_user_path(@user.id) do %>
+  <span class="fas fa-user-cog"></span>
 <% end %>
+
+<h1>New book</h1>
+<%= form_with model: @book, local:true do |f| %>
+
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Book' %>
+
+<% end %>
+<h1>Users</h1>
+
+<table class="table table-hover table-inverse">
+
+   <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+
+      <% @users.each do |user| %>
+     <tr>
+        <td>
+          <%= image_tag user.profile_image %>
+        </td>
+        <td>
+          <%= link_to user.name, user_path(user.id) %>
+        </td>
+     </tr>
+       <% end %>
+
+    </tbody>
+
+
+</table>
+
+

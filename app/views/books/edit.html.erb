@@ -1,4 +1,13 @@
-books/editページ
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <h1>Editing Book</h1>
 <%= form_with model: @book, local:true do |f| %>
 
@@ -6,17 +15,17 @@ books/editページ
   <%= f.text_field :title %>
 
   <h4>Opinion</h4>
-  <%= f.text_area :opinion %>
+  <%= f.text_area :body %>
 
-  <%= f.submit 'Update User' %>
+  <%= f.submit 'Update Book' %>
 
 <% end %>
-
+   <tr>
     <td>
      <%= link_to "Show", book_path(@book.id) %>
     </td>
     <td>|</td>
     <td>
-     <%= link_to "Back", book_path(@book.id) %>
+     <%= link_to "Back", @book %>
     </td>
    </tr>

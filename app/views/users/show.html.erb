@@ -1,30 +1,21 @@
-user/showページ
 
+<p class="notice"><%= flash[:notice] %></p>
 
- <h1>Bookers</h1>
- <li>
-  <%= link_to "Home", root_path %>
- </li>
- <li>
-  <%= link_to "Users", user_path %>
- </li>
- <li>
-  <%= link_to "Books", book_path %>
- </li>
- <li>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
- </li>
  <h1>User info</h1>
 
- <%= image_tag @user.image, size: "200x200" %>
 
+
+ <p><%= image_tag @user.get_profile_image("63x63") %></p>
  <p>name</p>
  <p><%= @user.name %></p>
 
  <p>introduction</p>
  <p><%= @user.introduction %></p>
 
- <%= link_to "編集", edit_user_path(@user.id) %>
+ <%= link_to edit_user_path(@user.id) do %>
+  <span class="fas fa-user-cog"></span>
+ <% end %>
+
  <h1>New book</h1>
  <%= form_with model: @book, local:true do |f| %>
 
@@ -32,7 +23,7 @@ user/showページ
    <%= f.text_field :title %>
 
    <h4>Opinion</h4>
-   <%= f.text_area :opinion %>
+   <%= f.text_area :body %>
 
    <%= f.submit 'Create Book' %>
 
@@ -53,7 +44,7 @@ user/showページ
 
     <tr>
      <td><%= book.title %></td>
-     <td><%= book.opinion %></td>
+     <td><%= book.body %></td>
 
      <td>
       <%= link_to "Edit", edit_book_path(book.id) %>
