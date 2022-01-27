@@ -1,24 +1,28 @@
+<p class="notice"><%= flash[:notice] %></p>
+<div class="container">
+ <div class="row">
+  <div class="mx-auto col-11 col-sm-10 col-log-8 col-xl-6">
+    <h1>welcome to <i class="fas fa-book"></i>Bookers!!</h1>
+    <p>
+       In <i class="fas fa-book"></i><strong>Bookers,</strong><br>
+    </p>
+    <P>
+       you can share and exchange your opinions , inpressions , and emotions
+    </p>
+    <p>about various books!</p>
 
-  <p class="notice"><%= flash[:notice] %></p>
-  <h1>welcome to <i class="fas fa-book"></i>Bookers!!</h1>
-  <p>
-     In <i class="fas fa-book"></i>Bookers,<br>
-     you can share and exchange your opinions , inpressions , and emotions
-  </p>
-  <p>about various books!</p>
+     <div class="btn-wrapper col-10 mx-auto">
 
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-      <% end %>
-    </header>
+          <div class="row">
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+          </div>
+          <div class="row">
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+          </div>
 
-    <%= yield %>
+
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
