@@ -21,54 +21,61 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+
+            <li class="navbar-brand">
               <%= link_to destroy_user_session_path, method: :get do %>
-                <span>Bookers</span>
+                <span class="text-white ml-auto">Bookers</span>
               <% end %>
             </li>
             <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to user_path(current_user.id) do %>
-               <span class="fas fa-home"></span>Home
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to users_path do %>
-               <span class="fas fa-users"></span>Users
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to books_path do %>
-                <span class="fas fa-book-open"></span>Books
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to destroy_user_session_path, method: :get do %>
-                <span class="fas fa-sign-out-alt"></span>Log out
-              <% end %>
-            </li>
+            <div class="btn-group ml-auto">
+              <ul class="navbar-nav">
+              <li class="nav-item">
+                <%= link_to user_path(current_user.id) do %>
+                 <span class="fas fa-home text-white"></span>Home
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to users_path do %>
+                 <span class="fas fa-users text-white"></span>Users
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to books_path do %>
+                  <span class="fas fa-book-open text-white"></span>Books
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to destroy_user_session_path, method: :get do %>
+                  <span class="fas fa-sign-out-alt text-white"></span>Log out
+                <% end %>
+              </li>
+              </ul>
+            </div>
             <% else %>
-            <li class="nav-item">
-              <%= link_to root_path do %>
-               <span class="fas fa-home"></span>Home
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to home_about_path do %>
-               <span class="fas fa-link"></span>About
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_user_registration_path do %>
-               <span class="fas fa-user-plus"></span>Sign up
-              <% end %>
-            </li>
-            <li class="nav-item">
-              <%= link_to new_user_session_path do %>
-               <span class="fas fa-sign-in-alt"></span>Log in
-              <% end %>
-            </li>
+            <div class="btn-group ml-auto">
+              <ul class="navbar-nav">
+              <li class="nav-item">
+                <%= link_to root_path do %>
+                 <span class="fas fa-home text-white"></span>Home
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to home_about_path do %>
+                 <span class="fas fa-link text-white"></span>About
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_user_registration_path do %>
+                 <span class="fas fa-user-plus text-white"></span>Sign up
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_user_session_path do %>
+                 <span class="fas fa-sign-in-alt text-white"></span>Log in
+                <% end %>
+              </li>
+            </div>
             <% end %>
             </ul>
           </div>
